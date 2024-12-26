@@ -1,0 +1,9 @@
+ext {
+    moduleLibraryName = "sdk_generator"
+    magiskModuleId = "zygisk_sdk_generator"
+    moduleName = "Auto SDK Generator for PUBM Mobile"
+    moduleAuthor = "CheatBot_Owner"
+    moduleDescription = ""
+    moduleVersion = "v1.0.0"
+    moduleVersionCode = 1
+}
