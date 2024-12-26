@@ -1,0 +1,29 @@
+name: Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup JDK
+      uses: actions/setup-java@v3
+      with:
+        distribution: temurin
+        java-version: 11
+        cache: gradle
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x ./gradlew
+
+    - name: Build with Gradle
+      run: ./gradlew :module:assembleRelease
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: zygisk-il2cppdumper
+        path: out/magisk_module_release/
